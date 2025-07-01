@@ -1,0 +1,75 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Pytest cache
+.pytest_cache/
+
+# PyCharm
+.idea/
+*.iml
+
+# VSCode (if you use it too)
+.vscode/
+
+# Alembic
+alembic/versions/*.pyc
+alembic/versions/__pycache__/
+# Optional: ignore generated versions (keep if you want to track manually)
+# alembic/versions/*.py
+
+# Logs
+*.log
+
+# Local env files
+.env
+.env.*
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
+
+# Pytype
+.pytype/
+
+# Jupyter
+.ipynb_checkpoints
+
+# SQLite DBs (if applicable)
+*.sqlite3
+
+# Mac OS
+.DS_Store
+
+# Other
+__pypackages__/
