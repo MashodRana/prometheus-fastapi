@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     DB_PASS: str = "postgres"
     DB_HOST: str = "postgres"
     DB_PORT: int = 5432
-    DATABASE_URL: str ="postgresql+asyncpg://fastapi_user:fastapi_password@localhost:5432/test-db"
+    DATABASE_URL: str ="postgresql+asyncpg://postgres:postgres@localhost:5432/prometheus-metrics-db"
 
     DATABASE_POOL_SIZE: int = 10
     DATABASE_MAX_OVERFLOW: int = 20
