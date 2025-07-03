@@ -8,6 +8,9 @@ import logging
 
 from app.api.routers import api_router
 from app.core.config import settings
+from app.metrics.base import metrics_router
+from app.metrics.http_metrics import HTTPMetrics
+from app.middlewares.metrics_middleware import MetricsMiddleware
 
 # Configure logging
 logging.basicConfig(
@@ -69,8 +72,14 @@ def get_application() -> FastAPI:
         )
         return response
 
+    # Add metrics middleware
+    if settings.metrics_enabled:
+        http_metrics = HTTPMetrics()
+        app.add_middleware(MetricsMiddleware, http_metrics=http_metrics)
+
     # Include API routers with versioning
     app.include_router(api_router, prefix="/api")
+    app.include_router(metrics_router)
 
     # Health check endpoint
     @app.get("/health")

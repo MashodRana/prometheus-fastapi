@@ -16,6 +16,10 @@ class Settings(BaseSettings):
     # Enable uvicorn reloading
     RELOAD: bool = True
 
+    # Metrics
+    metrics_enabled: bool = True
+    metrics_endpoint: str = "/metrics"
+
     # Database settings
     DB_NAME: str = "prometheus-metrics-db"
     DB_USER: str = "postgres"

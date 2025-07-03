@@ -32,6 +32,9 @@ target_metadata = Base.metadata
 # ... etc.
 import os
 DATABASE_URL = os.getenv("DATABASE_URL")
+config.set_main_option("sqlalchemy.url", DATABASE_URL)
+
+
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
 
