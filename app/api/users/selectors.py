@@ -1,7 +1,6 @@
 from uuid import UUID
 from typing import Optional, List
 
-
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy import select
@@ -12,12 +11,13 @@ from app.schemas.user import NewUserSchema
 
 class UserSelector:
     @staticmethod
-    async def get_by_id(db:AsyncSession, user_id: UUID) -> Optional[UserModel]:
-        result = await db.execute(select(UserModel).where(UserModel.id==user_id))
+    async def get_by_id(db: AsyncSession, user_id: UUID) -> Optional[UserModel]:
+        result = await db.execute(select(UserModel).where(UserModel.id == user_id))
         return result.scalar_one_or_none()
 
     @staticmethod
-    async def get_users(db: AsyncSession, skip: int = 0, limit: int = 100) -> List[UserModel]:
+    async def get_users(db: AsyncSession, page: int = 0, limit: int = 100) -> List[UserModel]:
+        skip = page * limit
         result = await db.execute(
             select(UserModel)
             .offset(skip)
