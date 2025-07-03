@@ -1,3 +1,4 @@
+from uuid import UUID
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 from datetime import datetime
@@ -9,6 +10,10 @@ class UserBaseSchema(BaseModel):
     full_name: Optional[str] = Field(None, max_length=255)
     bio: Optional[str] = None
     is_active: bool = True
+
+
+class NewUserSchema(UserBaseSchema):
+    password: str = Field(..., min_length=8, max_length=100)
 
 
 class UserCreateSchema(UserBaseSchema):
@@ -39,7 +44,7 @@ class User(UserInDB):
 
 
 class UserResponseSchema(BaseModel):
-    id: int
+    id: UUID
     email: EmailStr
     username: str
     full_name: Optional[str] = None
