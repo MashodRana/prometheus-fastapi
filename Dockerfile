@@ -12,4 +12,4 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # CMD ["uvicorn", "app.core.main:get_application", "--host", "0.0.0.0", "--port", "8000", "--reload"]
-CMD ["python", "server.py"]
+CMD alembic upgrade head && python server.py
